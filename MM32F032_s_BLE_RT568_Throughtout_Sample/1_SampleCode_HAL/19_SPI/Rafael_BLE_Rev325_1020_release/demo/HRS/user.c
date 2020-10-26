@@ -20,7 +20,7 @@
 #define BIT1     (0x00000002UL)       ///< Bit 1 mask of an 32 bit integer
 
 #ifdef _DEBUG_MSG_USER_
-#include <stdio.h>
+    #include <stdio.h>
 #endif  //(#ifdef _DEBUG_MSG_USER_)
 
 uint8_t connId = 0;   //Current connection Id
@@ -29,23 +29,23 @@ Uint8 ble_state = STATE_BLE_STANDBY;
 #define HOGP_PAIRING_KEY  654321                 //pairing key. uint32
 
 /* Function prototype declaration */
-static void BleEvent_Callback(BleCmdEvent event, void* param);
+static void BleEvent_Callback(BleCmdEvent event, void *param);
 
 #if (BLE_DEMO==DEMO_TRSPX_UART_SLAVE)
-extern void UART_TX_Send(uint32_t len, uint8_t *ptr);                         //show data on UART
+    extern void UART_TX_Send(uint32_t len, uint8_t *ptr);                         //show data on UART
 
-#if (BLE_DATA_LENGTH_EXTENSION_SUPPORT == ENABLE_)
-uint8_t txDataBuffer[247];
-#else
-uint8_t txDataBuffer[23];
-#endif
+    #if (BLE_DATA_LENGTH_EXTENSION_SUPPORT == ENABLE_)
+        uint8_t txDataBuffer[247];
+    #else
+        uint8_t txDataBuffer[23];
+    #endif
 
-uint8_t txDataLength;
-uint8_t tx_data_transmit_enable = 0;
+    uint8_t txDataLength;
+    uint8_t tx_data_transmit_enable = 0;
 
 #endif
 #ifdef _DEBUG_MSG_USER_
-uint8_t gateTimeline = 0;
+    uint8_t gateTimeline = 0;
 #endif  //(#ifdef _DEBUG_MSG_USER_)
 
 
@@ -160,6 +160,7 @@ const uint8_t SET_ADV_DATA[] =   //Adv data format. Set according to user select
     GAP_AD_TYPE_LENGTH_3, GAP_AD_TYPE_APPEARANCE, 0x00, 0x00,   //0x0000: 0 -> Reserved
 #endif
 
+
     //GAP_AD_TYPE_LENGTH_15, GAP_AD_TYPE_LOCAL_NAME_COMPLETE,
     //0x57, 0x61, 0x68, 0x6f,
     //0x6f, 0x20, 0x48, 0x52,
@@ -178,11 +179,11 @@ const uint8_t SET_ADV_DATA[] =   //Adv data format. Set according to user select
 
 const uint8_t SET_SCAN_RSP[] =          //Scan response data format. See Bluetooth Spec. Ver5.0 [Vol 3], Part C, Section 11
 {
-    9,                                  //Length: 1byte; Uint8 HCI_Scan_Rsp_Length;
-    8,                                  //AD length, Uint8 HCI_Scan_Rsp[LEN_ADV_SCAN_DATA_MAX];
+    0x0C,                                  //Length: 1byte; Uint8 HCI_Scan_Rsp_Length;
+    0x0B,                                  //AD length, Uint8 HCI_Scan_Rsp[LEN_ADV_SCAN_DATA_MAX];
     GAP_AD_TYPE_LOCAL_NAME_COMPLETE,    //AD Data: 1st byte
     'R', 'F', '_',                      //AD Data: other bytes
-    'D', 'E', 'M', 'O',                 //"RF_DEMO" => 7 characters, it's name shown on scan list
+    'D', 'E', 'M', 'O','_', 'C', 'P',                 //"RF_DEMO" => 7 characters, it's name shown on scan list
 };
 
 
@@ -218,7 +219,7 @@ void Ble_Slave_StartADV(void)
 
 void Ble_Master_Init(void)
 {
-    BLE_Addr_Param peerAddr_Param = {PUBLIC_ADDR,{TARGET_ADDR0,TARGET_ADDR1,TARGET_ADDR2,TARGET_ADDR3,TARGET_ADDR4,TARGET_ADDR5}};
+    BLE_Addr_Param peerAddr_Param = {PUBLIC_ADDR, {TARGET_ADDR0, TARGET_ADDR1, TARGET_ADDR2, TARGET_ADDR3, TARGET_ADDR4, TARGET_ADDR5}};
     BLE_Conn_Param connParam;
     BLE_Scan_Param scanParam;
 
@@ -232,7 +233,7 @@ void Ble_Master_Init(void)
     scanParam.Scan_Window = SCAN_WINDOW;
     scanParam.Scan_FilterPolicy = ADV_FILTER_POLICY_ACCEPT_ALL;
 
-    setBLE_ConnCreate(peerAddr_Param,scanParam,connParam);
+    setBLE_ConnCreate(peerAddr_Param, scanParam, connParam);
 }
 /*
 void Ble_Reset(void)
@@ -247,11 +248,11 @@ void Ble_Reset(void)
 
 void Ble_Initial(uint8_t role)  //0: slave, 1: master, 2: both(1, 2 not support yet)
 {
-    if(role==BLE_LL_SLAVE_ONLY)           //Slave only
+    if (role == BLE_LL_SLAVE_ONLY)        //Slave only
     {
         Ble_Slave_StartADV();               //This is for Slave Role. Do advertising, parameter cound be configured in user.c
     }
-    else if(role==BLE_LL_MASTER_ONLY)     //Master only
+    else if (role == BLE_LL_MASTER_ONLY)  //Master only
     {
         Ble_Master_Init();                  //This is for Master Role
     }
@@ -265,7 +266,7 @@ void Ble_Initial(uint8_t role)  //0: slave, 1: master, 2: both(1, 2 not support 
 void BleApp_Main(void)
 {
 #ifdef _DEBUG_MSG_USER_
-    extern void msg2uart(Uint8 * CodeStr, Uint8 *HexStr, Uint8 HexStrLength);
+    extern void msg2uart(Uint8 * CodeStr, Uint8 * HexStr, Uint8 HexStrLength);
 #endif  //(#ifdef _DEBUG_MSG_USER_)
 
 #if (BLE_DEMO==DEMO_HRS)
@@ -275,21 +276,21 @@ void BleApp_Main(void)
     TmrGet = LLTimeline_Get();
 #endif
 
-    if(ble_state == STATE_BLE_STANDBY)
+    if (ble_state == STATE_BLE_STANDBY)
     {
         Ble_Slave_StartADV();
         ble_state = STATE_BLE_ADVERTISING;
     }
-    else if(ble_state == STATE_BLE_ADVERTISING)
+    else if (ble_state == STATE_BLE_ADVERTISING)
     {
     }
-    else if(ble_state == STATE_BLE_CONNECTION)
+    else if (ble_state == STATE_BLE_CONNECTION)
     {
 
 #if (BLE_DEMO==DEMO_HRS)  //Application Part - HRS
 #ifdef _PROFILE_HRP_
 #ifdef _TMR_USE_INTERNAL_
-        if(((TmrGet-TmrCmp)&0x0000FFFF)<0x00001F40)     //<8000 * 125us = 1sec
+        if (((TmrGet - TmrCmp) & 0x0000FFFF) < 0x00001F40) //<8000 * 125us = 1sec
         {
             return;
         }
@@ -298,7 +299,7 @@ void BleApp_Main(void)
             TmrCmp = TmrGet;
         }
 #else   //(#ifdef _TMR_USE_INTERNAL_)
-        if(((TmrGet-TmrCmp)&0x00FFFFFF)<0x00027100)     //<160000
+        if (((TmrGet - TmrCmp) & 0x00FFFFFF) < 0x00027100) //<160000
         {
             return;
         }
@@ -309,7 +310,7 @@ void BleApp_Main(void)
 #endif  //(#ifdef _TMR_USE_INTERNAL_)
 
         //Hearte Rate type
-        if((att_HDL_HRS_HEART_RATE_MEASUREMENT[0]&BIT1)==0)  //initial is 0x14 & 0x02 = 0, toggle "device detected" / "device not detected" information
+        if ((att_HDL_HRS_HEART_RATE_MEASUREMENT[0]&BIT1) == 0) //initial is 0x14 & 0x02 = 0, toggle "device detected" / "device not detected" information
         {
             att_HDL_HRS_HEART_RATE_MEASUREMENT[0] |= BIT1;  //set Sensor Contact Status bit
         }
@@ -319,7 +320,7 @@ void BleApp_Main(void)
         }
 
         //If (att_HDL_HRS_CLIENT_CHARACTERISTIC_CONFIGURATION - Notify), then send out data
-        if(ATT_HDL_Notify(connId, (uint8_t *)ATT_HDL_HRS_HEART_RATE_MEASUREMENT_INIT, att_HDL_HRS_CLIENT_CHARACTERISTIC_CONFIGURATION, att_HDL_HRS_HEART_RATE_MEASUREMENT, 4) == BLESTACK_STATUS_SUCCESS)
+        if (ATT_HDL_Notify(connId, (uint8_t *)ATT_HDL_HRS_HEART_RATE_MEASUREMENT_INIT, att_HDL_HRS_CLIENT_CHARACTERISTIC_CONFIGURATION, att_HDL_HRS_HEART_RATE_MEASUREMENT, 4) == BLESTACK_STATUS_SUCCESS)
         {
             att_HDL_HRS_HEART_RATE_MEASUREMENT[1]++;             //+1, Heart Rate Data. Here just a simulation, increase 1 about every second
             att_HDL_HRS_HEART_RATE_MEASUREMENT[2]++;             //+1, Heart Rate RR-Interval
@@ -329,14 +330,14 @@ void BleApp_Main(void)
 #endif    //#if (BLE_DEMO==DEMO_HRS)
 
 #if (BLE_DEMO==DEMO_TRSPX_UART_SLAVE)
-        if(tx_data_transmit_enable == 1)
+        if (tx_data_transmit_enable == 1)
         {
             int i = 0;
 
             tx_data_transmit_enable = 0;
 
             //put UART data in att_HDL_UDF01S_UDATN01[]
-            for(i = 0; i < txDataLength; i++)
+            for (i = 0; i < txDataLength; i++)
             {
                 att_HDL_UDF01S_UDATN01[i] = txDataBuffer[i];
             }
@@ -349,7 +350,7 @@ void BleApp_Main(void)
 #endif //#if(BLE_DEMO==DEMO_TRSPX_UART_SLAVE)
 
 #ifdef _DEBUG_MSG_USER_SUB1
-        if(gateTimeline)
+        if (gateTimeline)
         {
             msg2uart("Time: ", (uint8_t *)&TmrCmp, 4);   //leftest byte is LSB byte
         };
@@ -365,7 +366,7 @@ void trspx_receive_data_callback(uint8_t length, uint8_t *data)
 {
 #if (BLE_DEMO==DEMO_TRSPX_LED_SLAVE)   //User demo code example 1 - LED control
     //if(att_HDL_UDF01S_UDATRW01[0]==0x31)  {//user write '1'
-    if(data[0] == 0x31)   //user write '1'
+    if (data[0] == 0x31)  //user write '1'
     {
         //turn on LED
         LED_1 = 0;
@@ -394,7 +395,7 @@ void trspx_send(uint8_t *data, uint16_t len)
     txDataLength = len;
 
     //put UART data in att_HDL_UDF01S_UDATN01[]
-    for(i = 0; i < len; i++)
+    for (i = 0; i < len; i++)
     {
         txDataBuffer[i] = data[i];
     }
@@ -405,12 +406,12 @@ void trspx_send(uint8_t *data, uint16_t len)
 
 
 /* GAP Callback Function */
-static void BleEvent_Callback(BleCmdEvent event, void* param)
+static void BleEvent_Callback(BleCmdEvent event, void *param)
 {
-    switch(event)
+    switch (event)
     {
     case BLECMD_EVENT_ADV_COMPLETE:
-        if(ble_state == STATE_BLE_ADVERTISING)
+        if (ble_state == STATE_BLE_ADVERTISING)
         {
             printf("Advertising...\n");
         }
@@ -431,8 +432,8 @@ static void BleEvent_Callback(BleCmdEvent event, void* param)
         connId = connParam->connId;
         ble_state = STATE_BLE_CONNECTION;
 
-        printf("Status:0x%02x\n",connParam->status);
-        printf("Connected to %02x:%02x:%02x:%02x:%02x:%02x\n",connParam->peerAddr.addr[5],
+        printf("Status:0x%02x\n", connParam->status);
+        printf("Connected to %02x:%02x:%02x:%02x:%02x:%02x\n", connParam->peerAddr.addr[5],
                connParam->peerAddr.addr[4],
                connParam->peerAddr.addr[3],
                connParam->peerAddr.addr[2],
@@ -446,28 +447,28 @@ static void BleEvent_Callback(BleCmdEvent event, void* param)
         BLE_Event_DisconnParam *disconnParam = (BLE_Event_DisconnParam *)param;
         ble_state = STATE_BLE_STANDBY;
 
-        printf("Disconnected, ID:%d, Reason:0x%X\n",disconnParam->connId, disconnParam->disconnectReason);
+        printf("Disconnected, ID:%d, Reason:0x%X\n", disconnParam->connId, disconnParam->disconnectReason);
     }
     break;
 
     case BLECMD_EVENT_CONN_UPDATE_COMPLETE:
     {
         BLE_Event_ConnUpdateParam *updateConnParam = (BLE_Event_ConnUpdateParam *)param;
-        printf("Connection updated, ID:%d, Status:%d, Interval:%d, Latency:%d, Timeout:%d\n", updateConnParam->connId,updateConnParam->status, updateConnParam->connInterval, updateConnParam->connLatency, updateConnParam->supervisionTimeout);
+        printf("Connection updated, ID:%d, Status:%d, Interval:%d, Latency:%d, Timeout:%d\n", updateConnParam->connId, updateConnParam->status, updateConnParam->connInterval, updateConnParam->connLatency, updateConnParam->supervisionTimeout);
     }
     break;
 
     case BLECMD_EVENT_PHY_UPDATE_COMPLETE:
     {
         BLE_Event_Phy_Update_Param *phy = (BLE_Event_Phy_Update_Param *)param;
-        printf("STATUS: %d, TX PHY: %d, RX PHY: %d\n",phy->status,phy->phyParam.tx_Phy, phy->phyParam.tx_Phy);
+        printf("STATUS: %d, TX PHY: %d, RX PHY: %d\n", phy->status, phy->phyParam.tx_Phy, phy->phyParam.tx_Phy);
     }
     break;
 
     case BLECMD_EVENT_PHY_READ_COMPLETE:
     {
         BLE_Event_Phy_Param *phy = (BLE_Event_Phy_Param *)param;
-        printf("ID:%d, TX:%d, RX:%d\n",phy->connId,phy->tx_Phy,phy->tx_Phy);
+        printf("ID:%d, TX:%d, RX:%d\n", phy->connId, phy->tx_Phy, phy->tx_Phy);
     }
     break;
 
@@ -477,11 +478,11 @@ static void BleEvent_Callback(BleCmdEvent event, void* param)
     case BLECMD_EVENT_STK_GEN_METHOD:
     {
         BLE_Event_Stk_Gen_Method *passkey_method = (BLE_Event_Stk_Gen_Method *)param;
-        if(passkey_method->Stk_Gen_Method == PASSKEY_ENTRY)
+        if (passkey_method->Stk_Gen_Method == PASSKEY_ENTRY)
         {
             //Start scanning user-entered passkey.
         }
-        else if(passkey_method->Stk_Gen_Method == PASSKEY_DISPLAY)
+        else if (passkey_method->Stk_Gen_Method == PASSKEY_DISPLAY)
         {
             //user can generate a 6-digit random code, and display it for pairing.
         }

@@ -21,200 +21,27 @@
 #include "uart.h"
 #include "spi.h"
 #include "mcu_definition.h"
+#include "ble_cmd.h"
+//#define _PWR_test
+
 
 // use UART for TRSPX
 #if (BLE_DEMO==DEMO_TRSPX_UART_SLAVE)
-#include "host.h"   //put UART char to att_HDL_UDF01S_UDATN01 and notify_send
+    #include "host.h"   //put UART char to att_HDL_UDF01S_UDATN01 and notify_send
 
-int BLEDemo_UartRxData_Handle(uint8_t *data, uint32_t dataLen);
-void UART02_IRQHandler(void);
-void UART_TX_Send(uint32_t len, uint8_t *ptr);        //show data on UART
-extern void trspx_send(uint8_t *data, uint16_t len);  //send out RF data
+    int BLEDemo_UartRxData_Handle(uint8_t *data, uint32_t dataLen);
+    void UART02_IRQHandler(void);
+    void UART_TX_Send(uint32_t len, uint8_t *ptr);        //show data on UART
+    extern void trspx_send(uint8_t *data, uint16_t len);  //send out RF data
 
-#if (BLE_DATA_LENGTH_EXTENSION_SUPPORT == ENABLE_)
-#define TRSPX_DEFAULT_MTU   247
-#else
-#define TRSPX_DEFAULT_MTU   23
-#endif
-uint32_t TRSPX_mtu = TRSPX_DEFAULT_MTU - 3;      //transparent data block length. att_HDL_UDF01S_UDATN01[] is also 20 bytes now!!!
+    #if (BLE_DATA_LENGTH_EXTENSION_SUPPORT == ENABLE_)
+        #define TRSPX_DEFAULT_MTU   247
+    #else
+        #define TRSPX_DEFAULT_MTU   23
+    #endif
+    uint32_t TRSPX_mtu = TRSPX_DEFAULT_MTU - 3;      //transparent data block length. att_HDL_UDF01S_UDATN01[] is also 20 bytes now!!!
 
 #endif //#if (BLE_DEMO==DEMO_TRSPX_UART_SLAVE)
-
-
-/* Exported variables -------------------------------------------------------*/
-/* Exported function prototypes ---------------------------------------------*/
-u8 gTxData[256];
-u8 gRxData[256];
-#define SectorErase           0x20
-#define PP                    0x02
-#define ReadData              0x03
-#define ChipErase             0xC7
-#define RDSR                  0x05
-#define Dummy_Byte            0x00
-#define W25X_BUSY             0
-#define W25X_NotBUSY          1
-#define FlashSize             0x400
-#define ReadStatusReg         0x05
-
-
-#define READ                  0x03
-#define FAST_READ             0x0B
-#define RDID                  0x9F
-#define WREN                  0x06
-#define WRDI                  0x04
-#define SE                    0xD8
-#define BE                    0xC7
-#define PP                    0x02
-#define RDSR                  0x05
-#define WRSR                  0x01
-#define DP                    0xB9
-#define RES                   0xAB
-#define GPIO_Pin_0_2  GPIO_Pin_2
-
-void W25xx_ReadID(void)
-{
-    u8 temp[5];
-    u32 i = 0;
-    temp[i++] = RDID;
-
-    //Spi cs assign to this pin,select
-    SPI2->NSSR &= ~SPI_NSSR_NSS ;//BSP_SPI_BLE_CS_L();//
-
-//    SPI_PDMA_SetTx(20U, ((uint32_t)(RFIP_init_reg+20)), RADIO_RF_INIT_REG_NUM+1-12);
-    /* Enable SPI TX DMA function */
-    SPIx_DMA_TxData(SPI2, temp, i); //u32TransCount-1UL ?
-    SPIx_DMA_RxData(SPI2, &temp[i], 3);
-    SPI2->NSSR |= SPI_NSSR_NSS ;//BSP_SPI_BLE_CS_H();//
-
-}
-
-static void W25xx_CheckStatus(void)
-{
-    u8 temp[5];
-    u32 i = 0;
-    SPI2->NSSR &= ~SPI_NSSR_NSS ;
-    temp[i++] = RDSR;
-    SPIx_DMA_TxData(SPI2, temp, i);
-    while (1)
-    {
-        SPIx_DMA_RxData(SPI2, &temp[i], 1);
-        if (((temp[i]) & 0x01) == 0x0)
-            break;
-    }
-    SPI2->NSSR |= SPI_NSSR_NSS ;
-}
-
-void W25xx_WriteEnable(void)
-{
-    u8 temp[5];
-    u32 i = 0;
-    temp[i++] = WREN;
-    //Spi cs assign to this pin,select
-    SPI2->NSSR &= ~SPI_NSSR_NSS ;//BSP_SPI_BLE_CS_L();//
-
-    SPIx_DMA_TxData(SPI2, temp, i);
-    SPI2->NSSR |= SPI_NSSR_NSS ;//BSP_SPI_BLE_CS_H();//
-}
-
-void W25xx_SectorErase(u32 address)
-{
-    u8 temp[5];
-    u32 i = 0;
-
-    address = address & 0xffff0000;
-    temp[i++] = SE;
-    temp[i++] = ((u8)(address >> 16)) & 0xff;
-    temp[i++] = ((u8)(address >> 8)) & 0xff;
-    temp[i++] = ((u8)address) & 0xff;
-    W25xx_WriteEnable();
-    //Spi cs assign to this pin,select
-    SPI2->NSSR &= ~SPI_NSSR_NSS ;
-    SPIx_DMA_TxData(SPI2, temp, i);
-
-    SPI2->NSSR |= SPI_NSSR_NSS ;
-    W25xx_CheckStatus();
-}
-
-void W25xx_PageProgram(u32 address, u8 *p, u32 number)
-{
-    u8 temp[5];
-    u32 i = 0;
-
-    address = address & 0xffff0000;
-    temp[i++] = PP;
-    temp[i++] = ((u8)(address >> 16)) & 0xff;
-    temp[i++] = ((u8)(address >> 8)) & 0xff;
-    temp[i++] = ((u8)address) & 0xff;
-    W25xx_WriteEnable();
-    SPI2->NSSR &= ~SPI_NSSR_NSS ;
-    SPIx_DMA_TxData(SPI2, temp, i);
-    SPIx_DMA_TxData(SPI2, p, number);
-    SPI2->NSSR |= SPI_NSSR_NSS ;
-    W25xx_CheckStatus();
-}
-void W25xx_PageRead(u32 address, u8 *p, u32 number)
-{
-
-    u8 temp[5];
-    u32 i = 0;
-    address = address & 0xffff0000;
-    temp[i++] = READ;
-    temp[i++] = ((u8)(address >> 16)) & 0xff;
-    temp[i++] = ((u8)(address >> 8)) & 0xff;
-    temp[i++] = ((u8)address) & 0xff;
-    W25xx_CheckStatus();
-    //Spi cs assign to this pin,select
-    SPI2->NSSR &= ~SPI_NSSR_NSS ;
-    SPIx_DMA_TxData(SPI2, temp, i);
-    SPIx_DMA_RxData(SPI2, p, number);
-    SPI2->NSSR |= SPI_NSSR_NSS ;
-}
-
-void SPI_DMA_25xxTest(void)
-{
-    u32 i, result = 0;
-    printf("\r\nsprintf ok\r\n");
-    printf("\r\nStart SPI test\r\n");
-
-    for (i = 0; i < 256; i++)
-    {
-        gTxData[i] = i * 2;
-    }
-    printf("SPI2 test\r\n");
-    W25xx_ReadID();
-    W25xx_SectorErase(0);
-    W25xx_PageProgram(0, gTxData, 256);
-    memset(gRxData, 0x0, 256);
-    W25xx_PageRead(0, gRxData, 256);
-    for (i = 0; i < 10; i++)
-    {
-        printf("rx[%d]=0x%x\r\n", i, gRxData[i]);
-    }
-    for (i = 0; i < 256; i++)
-    {
-        if (gTxData[i] != gRxData[i])
-        {
-            result = 1;
-            break;
-        }
-
-    }
-    if (result == 1)
-    {
-        printf("SPI2 WR 25xx Fail\r\n");
-    }
-    else
-    {
-        printf("SPI2 WR 25xx Successful\r\n");
-
-    }
-    printf("SPI2 test over\r\n");
-}
-
-
-#pragma push
-//#pragma Otime
-#pragma Ospace
 
 void RF_Open()
 {
@@ -238,11 +65,141 @@ void RF_Open()
     RF_Init();                   //EnableGpioInterrupt in the end of this function
 
 }
+bool  _PWR_Deepsleep_flag = false;
+/******************************************************************************
+ * @brief       Configure PB1(KEY1) GPIO and EXTI1 Line
+ * @param
+ * @retval
+ * @attention
+******************************************************************************/
+void EXTI0_1_Configure(void)
+{
+    GPIO_InitTypeDef GPIO_InitStructure;
+    EXTI_InitTypeDef EXTI_InitStructure;
+    NVIC_InitTypeDef NVIC_InitStructure;
 
+    /* Enable GPIOB Clock */
+    RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOB, ENABLE);
 
+    /* Selects the PB1(KEY1) used as EXTI Line */
+    SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOB, EXTI_PinSource1);
+
+    /* Configure PB1(KEY1) EXTI1 Line */
+    EXTI_StructInit(&EXTI_InitStructure);
+    EXTI_InitStructure.EXTI_Line    = EXTI_Line1;
+    EXTI_InitStructure.EXTI_Mode    = EXTI_Mode_Interrupt;
+    EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising;
+    EXTI_InitStructure.EXTI_LineCmd = ENABLE;
+    EXTI_Init(&EXTI_InitStructure);
+
+    /* Configure PB1(KEY1) as pull down input */
+    GPIO_StructInit(&GPIO_InitStructure);
+    GPIO_InitStructure.GPIO_Pin   = GPIO_Pin_1;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_IPD;
+    GPIO_Init(GPIOB, &GPIO_InitStructure);
+
+    /* Enable and Set PB1(KEY1) EXTI1 Interrupt */
+    NVIC_InitStructure.NVIC_IRQChannel = EXTI0_1_IRQn;
+    NVIC_InitStructure.NVIC_IRQChannelPriority = 0x00;
+    NVIC_InitStructure.NVIC_IRQChannelCmd    = ENABLE;
+    NVIC_Init(&NVIC_InitStructure);
+}
+/******************************************************************************
+ * @brief       EXTI0_1 interrupt handles
+ * @param
+ * @retval
+ * @attention
+******************************************************************************/
+void EXTI0_1_IRQHandler(void)
+{
+    if (EXTI_GetITStatus(EXTI_Line1) != RESET)
+    {
+        if (_PWR_Deepsleep_flag == false)
+        {
+            _PWR_Deepsleep_flag = true;
+        }
+        /* Clear the EXTI line 1 pending bit */
+        EXTI_ClearITPendingBit(EXTI_Line1);
+    }
+}
 /*!
    \brief main loop for initialization and BLE kernel
 */
+
+void Sys_Standby(void)
+{
+    // PWR CLOCK
+    RCC_APB1PeriphClockCmd(RCC_APB1Periph_PWR, ENABLE);
+    //  RCC->APB2RSTR|=0X01FC;//REAST IO
+    //Enable to wake up pin function
+    PWR_WakeUpPinCmd(ENABLE);
+    //Enter standby mode
+    PWR_EnterSTANDBYMode();
+}
+
+void WKUP_STOP_Init(void)
+{
+    GPIO_InitTypeDef  GPIO_InitStructure;
+    NVIC_InitTypeDef NVIC_InitStructure;
+    EXTI_InitTypeDef EXTI_InitStructure;
+    // EXTI  SYSTEM CLOLK ENABLE
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
+    RCC_APB1PeriphClockCmd(RCC_APB1ENR_PWREN, ENABLE);
+
+     RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA, ENABLE);
+    RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOB, ENABLE);
+    GPIO_StructInit(&GPIO_InitStructure);
+    GPIO_InitStructure.GPIO_Pin  = GPIO_Pin_0;                                  //PA0,K2£¨WK_UP£©
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPD;                               //set as pull down input
+    GPIO_Init(GPIOA, &GPIO_InitStructure);
+
+    GPIO_InitStructure.GPIO_Pin  = GPIO_Pin_10 | GPIO_Pin_11;                   //PB10 K3,PB11 K4
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;                               //set as pull up input
+    GPIO_Init(GPIOB, &GPIO_InitStructure);
+
+
+
+    //PA.0 use EXTI line 0
+    SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOA, EXTI_PinSource0);
+    EXTI_StructInit(&EXTI_InitStructure);
+    EXTI_InitStructure.EXTI_Line = EXTI_Line0;
+    EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;
+    EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising;
+    EXTI_InitStructure.EXTI_LineCmd = ENABLE;
+    EXTI_Init(&EXTI_InitStructure);
+
+    //PB.10 use EXTI line 10
+    SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOB, EXTI_PinSource10);
+
+    EXTI_InitStructure.EXTI_Line = EXTI_Line10;
+    EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;
+    EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;
+    EXTI_InitStructure.EXTI_LineCmd = ENABLE;
+    EXTI_Init(&EXTI_InitStructure);
+
+    //PB.11 use EXTI line 11
+    SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOB, EXTI_PinSource11);
+
+    EXTI_InitStructure.EXTI_Line = EXTI_Line11;
+    EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;
+    EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;
+    EXTI_InitStructure.EXTI_LineCmd = ENABLE;
+    EXTI_Init(&EXTI_InitStructure);
+
+
+    NVIC_InitStructure.NVIC_IRQChannel = EXTI4_15_IRQn;
+    NVIC_InitStructure.NVIC_IRQChannelPriority = 0x02;
+    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+    NVIC_Init(&NVIC_InitStructure);
+
+    NVIC_InitStructure.NVIC_IRQChannel = EXTI0_1_IRQn;
+    NVIC_InitStructure.NVIC_IRQChannelPriority = 0x01;
+    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+    NVIC_Init(&NVIC_InitStructure);
+
+}
+
 int main(void)
 {
     BLE_Addr_Param bleAddrParam;
@@ -268,21 +225,21 @@ int main(void)
     /* Config UART1 with parameter(115200, N, 8, 1) for printf */
     UARTx_Configure(DEBUG_UART, 115200, UART_WordLength_8b, UART_StopBits_1,  \
                     UART_Parity_No);
-
 #ifndef _HCI_HW_
     //UART_Open(UART0, 115200);
 #endif
 
     /* Enable the BLE RF PHY */
     RF_Open();
-
+    SysTick_DelayMs(2000);
     /* Open UART0 for debug */
 #ifndef _HCI_HW_
+
     printf("-------------------\n");
     printf("  BLE Start.....\n");
     printf("-------------------\n");
 
-    printf("Chip_ID=0x%x\n",ChipId_Get());
+    printf("Chip_ID=0x%x\n", ChipId_Get());
 #endif
 
     /* Set BD ADDR */
@@ -297,7 +254,7 @@ int main(void)
 
 
 #ifdef _HW_PRG_RESET_
-    if(WDT_GET_RESET_FLAG() == 1)
+    if (WDT_GET_RESET_FLAG() == 1)
     {
         WDT_CLEAR_RESET_FLAG();
 #ifdef _HCI_HW_
@@ -311,10 +268,10 @@ int main(void)
     BleApp_Init();
 #endif
 
-    while(1)
+    while (1)
     {
         /* Run BLE kernel, the task priority is LL > Host */
-        if(Ble_Kernel_Root() == BLESTACK_STATUS_FREE)
+        if (Ble_Kernel_Root() == BLESTACK_STATUS_FREE)
         {
             BleApp_Main();
 
@@ -322,69 +279,80 @@ int main(void)
             /* System enter Power Down mode & wait interrupt event. */
 //            System_PowerDown();
 #endif
+        if (_PWR_Deepsleep_flag == false)
+        {
+            setBLE_TxPower(TX_POWER_8_DBM,STATE_BLE_ADVERTISING);
+
+//            printf("GO TO DEEP SLEEP MODE\r\n");
+//            _PWR_Deepsleep_flag = true;
+//            setRF_EnterDeepSleep();
+
+////            Sys_Standby();
+
+//            RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
+//            RCC_APB1PeriphClockCmd(RCC_APB1ENR_PWREN, ENABLE);
+//            PWR_EnterSTOPMode(PWR_Regulator_LowPower, PWR_STOPEntry_WFI);
+
         }
+        }
+
     }
 }
-#pragma pop
-
-
 
 //Demo application - Trspx UART slave
 #if (BLE_DEMO==DEMO_TRSPX_UART_SLAVE)
 
-////show data on UART
-//void UART_TX_Send(uint32_t len, uint8_t *ptr)
-//{
-//    uint32_t i;
+    ////show data on UART
+    //void UART_TX_Send(uint32_t len, uint8_t *ptr)
+    //{
+    //    uint32_t i;
 
-//    for(i=0; i<len; i++)
-//    {
-//        UART_WRITE(UART0, *ptr++);
-//        UART_WAIT_TX_EMPTY(UART0);
-//    }
+    //    for(i=0; i<len; i++)
+    //    {
+    //        UART_WRITE(UART0, *ptr++);
+    //        UART_WAIT_TX_EMPTY(UART0);
+    //    }
 
-//    //add a new line
-//    UART_WRITE(UART0, 0x0D);
-//    UART_WRITE(UART0, 0x0A);
-//    UART_WAIT_TX_EMPTY(UART0);
-//}
+    //    //add a new line
+    //    UART_WRITE(UART0, 0x0D);
+    //    UART_WRITE(UART0, 0x0A);
+    //    UART_WAIT_TX_EMPTY(UART0);
+    //}
 
-////received UART data ISR: send out data by RF
-///* Be careful that Central device should enable NOTIFY */
-//static uint8_t uartBuffer[245];
+    ////received UART data ISR: send out data by RF
+    ///* Be careful that Central device should enable NOTIFY */
+    //static uint8_t uartBuffer[245];
 
-//void UART02_IRQHandler(void)
-//{
-//    static uint32_t index = 0u;
-//    uint8_t volatile uartReceiveByte;
+    //void UART02_IRQHandler(void)
+    //{
+    //    static uint32_t index = 0u;
+    //    uint8_t volatile uartReceiveByte;
 
-//    uint32_t u32IntSts = UART0->INTSTS;
-//    if(u32IntSts & UART_INTSTS_RDAINT_Msk)
-//    {
-//        while(UART_IS_RX_READY(UART0))
-//        {
-//            uartReceiveByte = UART_READ(UART0);
-//            uartBuffer[index] = uartReceiveByte;
-
-//            index++;
-
-//            if(index >= TRSPX_mtu)
-//            {
-//                trspx_send(uartBuffer,index);           //Send out UART data by RF
-//                index = 0;
-//            }
-//            else if((uartBuffer[index - 1] == '\r') || (uartBuffer[index - 1] == '\n'))
-//            {
-//                if(index > 1)
-//                {
-//                    uint32_t length = (uint32_t)index - 1; //Remove '\r' or '\n'
-//                    trspx_send(uartBuffer,length);         //Send out UART data by RF
-//                }
-//                index = 0;
-//            }
-//        }
-//    }
-//}
+    //    uint32_t u32IntSts = UART0->INTSTS;
+    //    if(u32IntSts & UART_INTSTS_RDAINT_Msk)
+    //    {
+    //        while(UART_IS_RX_READY(UART0))
+    //        {
+    //            uartReceiveByte = UART_READ(UART0);
+    //            uartBuffer[index] = uartReceiveByte;
+    //            index++;
+    //            if(index >= TRSPX_mtu)
+    //            {
+    //                trspx_send(uartBuffer,index);           //Send out UART data by RF
+    //                index = 0;
+    //            }
+    //            else if((uartBuffer[index - 1] == '\r') || (uartBuffer[index - 1] == '\n'))
+    //            {
+    //                if(index > 1)
+    //                {
+    //                    uint32_t length = (uint32_t)index - 1; //Remove '\r' or '\n'
+    //                    trspx_send(uartBuffer,length);         //Send out UART data by RF
+    //                }
+    //                index = 0;
+    //            }
+    //        }
+    //    }
+    //}
 
 
 #endif  //#if (BLE_DEMO==DEMO_TRSPX_UART_SLAVE)

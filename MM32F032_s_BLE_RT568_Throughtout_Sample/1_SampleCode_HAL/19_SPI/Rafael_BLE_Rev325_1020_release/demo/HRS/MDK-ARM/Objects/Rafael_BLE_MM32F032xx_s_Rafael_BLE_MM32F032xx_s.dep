@@ -1,6 +1,6 @@
 Dependencies for Project 'Rafael_BLE_MM32F032xx_s', Target 'Rafael_BLE_MM32F032xx_s': (DO NOT MODIFY !)
 CompilerVersion: 5060750::V5.06 update 6 (build 750)::.\ARMCC
-F (..\..\..\..\..\..\3_Device\MM32F032xx_s\Source\system_MM32F032xx_s.c)(0x5F48BADD)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\..\..\..\..\3_Device\CMSIS\KEIL_CORE -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\HAL_lib\inc -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\Include -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\Source\KEIL_StartAsm -I ..\Peripheral\inc -I ..\..\..\include\rf_include -I ..\..\..\include\ -I ..\..\..\porting\rf_porting -I ..\..\..\porting\ -I ..\ -I ..\inc-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="531"-o .\objects\system_mm32f032xx_s.o --omf_browse .\objects\system_mm32f032xx_s.crf --depend .\objects\system_mm32f032xx_s.d)
+F (..\..\..\..\..\..\3_Device\MM32F032xx_s\Source\system_MM32F032xx_s.c)(0x5F928A0B)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\..\..\..\..\3_Device\CMSIS\KEIL_CORE -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\HAL_lib\inc -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\Include -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\Source\KEIL_StartAsm -I ..\Peripheral\inc -I ..\..\..\include\rf_include -I ..\..\..\include\ -I ..\..\..\porting\rf_porting -I ..\..\..\porting\ -I ..\ -I ..\inc-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="531"-o .\objects\system_mm32f032xx_s.o --omf_browse .\objects\system_mm32f032xx_s.crf --depend .\objects\system_mm32f032xx_s.d)
 I (..\..\..\..\..\..\3_Device\MM32F032xx_s\Include\mm32_device.h)(0x5EAA8B03)
 I (..\..\..\..\..\..\3_Device\MM32F032xx_s\Include\mm32_reg.h)(0x5F8FF6E6)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5F601D9B)
@@ -11,7 +11,7 @@ I (..\..\..\..\..\..\3_Device\CMSIS\KEIL_CORE\core_cmInstr.h)(0x5E782F0C)
 I (..\..\..\..\..\..\3_Device\CMSIS\KEIL_CORE\core_cmFunc.h)(0x5E782F0C)
 I (..\..\..\..\..\..\3_Device\MM32F032xx_s\Include\mm32_reg_redefine_v1.h)(0x5EAA8A46)
 F (..\..\..\..\..\..\3_Device\MM32F032xx_s\Source\KEIL_StartAsm\startup_MM32F032xx_s_KEIL.s)(0x5EB64DF1)(--cpu Cortex-M0 -g --apcs=interwork --pd "__MICROLIB SETA 1"-IC:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 531"--list .\listings\startup_mm32f032xx_s_keil.lst --xref -o .\objects\startup_mm32f032xx_s_keil.o --depend .\objects\startup_mm32f032xx_s_keil.d)
-F (..\main.c)(0x5F8FF90C)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\..\..\..\..\3_Device\CMSIS\KEIL_CORE -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\HAL_lib\inc -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\Include -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\Source\KEIL_StartAsm -I ..\Peripheral\inc -I ..\..\..\include\rf_include -I ..\..\..\include\ -I ..\..\..\porting\rf_porting -I ..\..\..\porting\ -I ..\ -I ..\inc-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="531"-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (..\main.c)(0x5F926EC8)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\..\..\..\..\3_Device\CMSIS\KEIL_CORE -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\HAL_lib\inc -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\Include -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\Source\KEIL_StartAsm -I ..\Peripheral\inc -I ..\..\..\include\rf_include -I ..\..\..\include\ -I ..\..\..\porting\rf_porting -I ..\..\..\porting\ -I ..\ -I ..\inc-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="531"-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5EC775FC)
 I (..\inc\main.h)(0x5EE0B431)
 I (..\inc\config.h)(0x5F4629F5)
@@ -50,12 +50,12 @@ I (..\..\..\..\..\..\3_Device\MM32F032xx_s\HAL_lib\inc\HAL_wwdg.h)(0x5EAA8B03)
 I (..\..\..\..\..\..\3_Device\MM32F032xx_s\HAL_lib\inc\HAL_redefine_V1.H)(0x5EAA8B02)
 I (..\..\..\..\..\..\3_Device\MM32F032xx_s\HAL_lib\inc\HAL_device.h)(0x5EAA8B02)
 I (..\..\..\include\rf_phy.h)(0x5F8E7F69)
-I (..\BleAppSetting.h)(0x5F8FF8BF)
-I (..\..\..\porting\mcu_definition.h)(0x5F44CFA2)
+I (..\BleAppSetting.h)(0x5F90FBE8)
+I (..\..\..\porting\mcu_definition.h)(0x5F9006C6)
 I (..\..\..\include\ble_cmd.h)(0x5F7C4E09)
 I (..\..\..\include\host.h)(0x5F8E7F7A)
 I (..\..\..\include\ble_basicType.h)(0x5F688738)
-I (..\..\..\include\ble_gapDef.h)(0x5F6470D6)
+I (..\..\..\include\ble_gapDef.h)(0x5F962756)
 I (..\..\..\include\ble_uuid.h)(0x5EA175F0)
 I (..\..\..\include\ble_att_gatt.h)(0x5F5F4852)
 I (..\..\..\include\ble_serviceDef.h)(0x5F28D2A6)
@@ -66,10 +66,10 @@ I (..\..\..\porting\rf_porting\porting_LLtimer.h)(0x5F44CAA8)
 I (..\Peripheral\inc\systick.h)(0x5EE0988A)
 I (..\Peripheral\inc\uart.h)(0x5F8FF948)
 I (..\Peripheral\inc\spi.h)(0x5F436AB5)
-F (..\user.c)(0x5F8E817B)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\..\..\..\..\3_Device\CMSIS\KEIL_CORE -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\HAL_lib\inc -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\Include -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\Source\KEIL_StartAsm -I ..\Peripheral\inc -I ..\..\..\include\rf_include -I ..\..\..\include\ -I ..\..\..\porting\rf_porting -I ..\..\..\porting\ -I ..\ -I ..\inc-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="531"-o .\objects\user.o --omf_browse .\objects\user.crf --depend .\objects\user.d)
+F (..\user.c)(0x5F962780)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\..\..\..\..\3_Device\CMSIS\KEIL_CORE -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\HAL_lib\inc -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\Include -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\Source\KEIL_StartAsm -I ..\Peripheral\inc -I ..\..\..\include\rf_include -I ..\..\..\include\ -I ..\..\..\porting\rf_porting -I ..\..\..\porting\ -I ..\ -I ..\inc-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="531"-o .\objects\user.o --omf_browse .\objects\user.crf --depend .\objects\user.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5EC775FC)
-I (..\BleAppSetting.h)(0x5F8FF8BF)
-I (..\..\..\porting\mcu_definition.h)(0x5F44CFA2)
+I (..\BleAppSetting.h)(0x5F90FBE8)
+I (..\..\..\porting\mcu_definition.h)(0x5F9006C6)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5F601D9B)
 I (..\inc\config.h)(0x5F4629F5)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5EC775FC)
@@ -107,7 +107,7 @@ I (..\..\..\..\..\..\3_Device\MM32F032xx_s\HAL_lib\inc\HAL_redefine_V1.H)(0x5EAA
 I (..\..\..\..\..\..\3_Device\MM32F032xx_s\HAL_lib\inc\HAL_device.h)(0x5EAA8B02)
 I (..\..\..\include\host.h)(0x5F8E7F7A)
 I (..\..\..\include\ble_basicType.h)(0x5F688738)
-I (..\..\..\include\ble_gapDef.h)(0x5F6470D6)
+I (..\..\..\include\ble_gapDef.h)(0x5F962756)
 I (..\..\..\include\ble_uuid.h)(0x5EA175F0)
 I (..\..\..\include\ble_att_gatt.h)(0x5F5F4852)
 I (..\..\..\include\ble_serviceDef.h)(0x5F28D2A6)
@@ -116,7 +116,7 @@ I (..\..\..\include\rf_phy.h)(0x5F8E7F69)
 I (..\..\..\include\ble_cmd.h)(0x5F7C4E09)
 I (..\..\..\porting\porting_misc.h)(0x5F8EA033)
 I (..\..\..\include\ble_event.h)(0x5EA175F0)
-F (..\BleAppSetting.h)(0x5F8FF8BF)()
+F (..\BleAppSetting.h)(0x5F90FBE8)()
 F (..\Peripheral\spi.c)(0x5F8FFAC1)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\..\..\..\..\3_Device\CMSIS\KEIL_CORE -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\HAL_lib\inc -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\Include -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\Source\KEIL_StartAsm -I ..\Peripheral\inc -I ..\..\..\include\rf_include -I ..\..\..\include\ -I ..\..\..\porting\rf_porting -I ..\..\..\porting\ -I ..\ -I ..\inc-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="531"-o .\objects\spi.o --omf_browse .\objects\spi.crf --depend .\objects\spi.d)
 I (..\Peripheral\inc\spi.h)(0x5F436AB5)
 I (..\inc\config.h)(0x5F4629F5)
@@ -234,19 +234,19 @@ I (..\..\..\..\..\..\3_Device\MM32F032xx_s\HAL_lib\inc\HAL_device.h)(0x5EAA8B02)
 I (..\inc\user.h)(0x5F8FA70A)
 I (..\..\..\include\ble_cmd.h)(0x5F7C4E09)
 I (..\..\..\include\host.h)(0x5F8E7F7A)
-I (..\BleAppSetting.h)(0x5F8FF8BF)
-I (..\..\..\porting\mcu_definition.h)(0x5F44CFA2)
+I (..\BleAppSetting.h)(0x5F90FBE8)
+I (..\..\..\porting\mcu_definition.h)(0x5F9006C6)
 I (..\..\..\include\ble_basicType.h)(0x5F688738)
-I (..\..\..\include\ble_gapDef.h)(0x5F6470D6)
+I (..\..\..\include\ble_gapDef.h)(0x5F962756)
 I (..\..\..\include\ble_uuid.h)(0x5EA175F0)
 I (..\..\..\include\ble_att_gatt.h)(0x5F5F4852)
 I (..\..\..\include\ble_serviceDef.h)(0x5F28D2A6)
 I (..\..\..\include\blestack_status.h)(0x5F6096D6)
-F (..\..\..\porting\mcu_definition.h)(0x5F44CFA2)()
-F (..\..\..\porting\rf_porting\porting_LLtimer.c)(0x5F44CB3D)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\..\..\..\..\3_Device\CMSIS\KEIL_CORE -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\HAL_lib\inc -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\Include -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\Source\KEIL_StartAsm -I ..\Peripheral\inc -I ..\..\..\include\rf_include -I ..\..\..\include\ -I ..\..\..\porting\rf_porting -I ..\..\..\porting\ -I ..\ -I ..\inc-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="531"-o .\objects\porting_lltimer.o --omf_browse .\objects\porting_lltimer.crf --depend .\objects\porting_lltimer.d)
+F (..\..\..\porting\mcu_definition.h)(0x5F9006C6)()
+F (..\..\..\porting\rf_porting\porting_LLtimer.c)(0x5F9628E9)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\..\..\..\..\3_Device\CMSIS\KEIL_CORE -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\HAL_lib\inc -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\Include -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\Source\KEIL_StartAsm -I ..\Peripheral\inc -I ..\..\..\include\rf_include -I ..\..\..\include\ -I ..\..\..\porting\rf_porting -I ..\..\..\porting\ -I ..\ -I ..\inc-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="531"-o .\objects\porting_lltimer.o --omf_browse .\objects\porting_lltimer.crf --depend .\objects\porting_lltimer.d)
 I (..\..\..\porting\rf_porting\porting_LLtimer.h)(0x5F44CAA8)
 I (..\..\..\include\ble_basicType.h)(0x5F688738)
-I (..\..\..\porting\mcu_definition.h)(0x5F44CFA2)
+I (..\..\..\porting\mcu_definition.h)(0x5F9006C6)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5F601D9B)
 I (..\inc\config.h)(0x5F4629F5)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5EC775FC)
@@ -324,7 +324,7 @@ I (..\..\..\..\..\..\3_Device\MM32F032xx_s\HAL_lib\inc\HAL_device.h)(0x5EAA8B02)
 I (..\..\..\porting\porting_spi.h)(0x5F2A66F2)
 I (..\..\..\porting\rf_porting\porting_LLtimer.h)(0x5F44CAA8)
 I (..\..\..\include\ble_basicType.h)(0x5F688738)
-I (..\..\..\porting\mcu_definition.h)(0x5F44CFA2)
+I (..\..\..\porting\mcu_definition.h)(0x5F9006C6)
 I (..\Peripheral\inc\systick.h)(0x5EE0988A)
 F (..\..\..\porting\porting_spi.c)(0x5F8E8210)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\..\..\..\..\3_Device\CMSIS\KEIL_CORE -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\HAL_lib\inc -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\Include -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\Source\KEIL_StartAsm -I ..\Peripheral\inc -I ..\..\..\include\rf_include -I ..\..\..\include\ -I ..\..\..\porting\rf_porting -I ..\..\..\porting\ -I ..\ -I ..\inc-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="531"-o .\objects\porting_spi.o --omf_browse .\objects\porting_spi.crf --depend .\objects\porting_spi.d)
 I (..\Peripheral\inc\spi.h)(0x5F436AB5)
@@ -366,12 +366,12 @@ I (..\..\..\..\..\..\3_Device\MM32F032xx_s\HAL_lib\inc\HAL_redefine_V1.H)(0x5EAA
 I (..\..\..\..\..\..\3_Device\MM32F032xx_s\HAL_lib\inc\HAL_device.h)(0x5EAA8B02)
 I (..\..\..\porting\porting_spi.h)(0x5F2A66F2)
 I (..\..\..\include\rf_phy.h)(0x5F8E7F69)
-I (..\BleAppSetting.h)(0x5F8FF8BF)
-I (..\..\..\porting\mcu_definition.h)(0x5F44CFA2)
+I (..\BleAppSetting.h)(0x5F90FBE8)
+I (..\..\..\porting\mcu_definition.h)(0x5F9006C6)
 I (..\..\..\include\ble_cmd.h)(0x5F7C4E09)
 I (..\..\..\include\host.h)(0x5F8E7F7A)
 I (..\..\..\include\ble_basicType.h)(0x5F688738)
-I (..\..\..\include\ble_gapDef.h)(0x5F6470D6)
+I (..\..\..\include\ble_gapDef.h)(0x5F962756)
 I (..\..\..\include\ble_uuid.h)(0x5EA175F0)
 I (..\..\..\include\ble_att_gatt.h)(0x5F5F4852)
 I (..\..\..\include\ble_serviceDef.h)(0x5F28D2A6)
@@ -379,8 +379,8 @@ I (..\..\..\include\blestack_status.h)(0x5F6096D6)
 F (..\..\..\porting\porting_flash.c)(0x5F8E8058)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\..\..\..\..\3_Device\CMSIS\KEIL_CORE -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\HAL_lib\inc -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\Include -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\Source\KEIL_StartAsm -I ..\Peripheral\inc -I ..\..\..\include\rf_include -I ..\..\..\include\ -I ..\..\..\porting\rf_porting -I ..\..\..\porting\ -I ..\ -I ..\inc-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="531"-o .\objects\porting_flash.o --omf_browse .\objects\porting_flash.crf --depend .\objects\porting_flash.d)
 I (..\..\..\porting\porting_flash.h)(0x5F6096D6)
 I (..\..\..\include\host.h)(0x5F8E7F7A)
-I (..\BleAppSetting.h)(0x5F8FF8BF)
-I (..\..\..\porting\mcu_definition.h)(0x5F44CFA2)
+I (..\BleAppSetting.h)(0x5F90FBE8)
+I (..\..\..\porting\mcu_definition.h)(0x5F9006C6)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5F601D9B)
 I (..\inc\config.h)(0x5F4629F5)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5EC775FC)
@@ -418,7 +418,7 @@ I (..\..\..\..\..\..\3_Device\MM32F032xx_s\HAL_lib\inc\HAL_wwdg.h)(0x5EAA8B03)
 I (..\..\..\..\..\..\3_Device\MM32F032xx_s\HAL_lib\inc\HAL_redefine_V1.H)(0x5EAA8B02)
 I (..\..\..\..\..\..\3_Device\MM32F032xx_s\HAL_lib\inc\HAL_device.h)(0x5EAA8B02)
 I (..\..\..\include\ble_basicType.h)(0x5F688738)
-I (..\..\..\include\ble_gapDef.h)(0x5F6470D6)
+I (..\..\..\include\ble_gapDef.h)(0x5F962756)
 I (..\..\..\include\ble_uuid.h)(0x5EA175F0)
 I (..\..\..\include\ble_att_gatt.h)(0x5F5F4852)
 I (..\..\..\include\ble_serviceDef.h)(0x5F28D2A6)
@@ -657,9 +657,9 @@ I (..\..\..\..\..\..\3_Device\CMSIS\KEIL_CORE\core_cmFunc.h)(0x5E782F0C)
 I (..\..\..\..\..\..\3_Device\MM32F032xx_s\Include\mm32_reg_redefine_v1.h)(0x5EAA8A46)
 I (..\..\..\..\..\..\3_Device\MM32F032xx_s\HAL_lib\inc\hal_rcc.h)(0x5EAA8B02)
 F (..\..\..\source\bonding_storage.c)(0x5F894D0E)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\..\..\..\..\3_Device\CMSIS\KEIL_CORE -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\HAL_lib\inc -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\Include -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\Source\KEIL_StartAsm -I ..\Peripheral\inc -I ..\..\..\include\rf_include -I ..\..\..\include\ -I ..\..\..\porting\rf_porting -I ..\..\..\porting\ -I ..\ -I ..\inc-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="531"-o .\objects\bonding_storage.o --omf_browse .\objects\bonding_storage.crf --depend .\objects\bonding_storage.d)
-I (..\..\..\include\rf_include\knl_pblc.h)(0x5F8EB25F)
-I (..\BleAppSetting.h)(0x5F8FF8BF)
-I (..\..\..\porting\mcu_definition.h)(0x5F44CFA2)
+I (..\..\..\include\rf_include\knl_pblc.h)(0x5F96290A)
+I (..\BleAppSetting.h)(0x5F90FBE8)
+I (..\..\..\porting\mcu_definition.h)(0x5F9006C6)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5F601D9B)
 I (..\inc\config.h)(0x5F4629F5)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5EC775FC)
@@ -700,7 +700,7 @@ I (..\..\..\include\ble_basicType.h)(0x5F688738)
 I (..\..\..\include\rf_include\_ble_host.h)(0x5F8E83B4)
 I (..\..\..\include\ble_cmd.h)(0x5F7C4E09)
 I (..\..\..\include\host.h)(0x5F8E7F7A)
-I (..\..\..\include\ble_gapDef.h)(0x5F6470D6)
+I (..\..\..\include\ble_gapDef.h)(0x5F962756)
 I (..\..\..\include\ble_uuid.h)(0x5EA175F0)
 I (..\..\..\include\ble_att_gatt.h)(0x5F5F4852)
 I (..\..\..\include\ble_serviceDef.h)(0x5F28D2A6)
@@ -708,8 +708,8 @@ I (..\..\..\include\blestack_status.h)(0x5F6096D6)
 I (..\..\..\porting\porting_flash.h)(0x5F6096D6)
 F (..\..\..\source\profile_tab.c)(0x5F688738)(-c --cpu Cortex-M0 -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\..\..\..\..\..\3_Device\CMSIS\KEIL_CORE -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\HAL_lib\inc -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\Include -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\Source\KEIL_StartAsm -I ..\Peripheral\inc -I ..\..\..\include\rf_include -I ..\..\..\include\ -I ..\..\..\porting\rf_porting -I ..\..\..\porting\ -I ..\ -I ..\inc-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="531"-o .\objects\profile_tab.o --omf_browse .\objects\profile_tab.crf --depend .\objects\profile_tab.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5EC775FC)
-I (..\BleAppSetting.h)(0x5F8FF8BF)
-I (..\..\..\porting\mcu_definition.h)(0x5F44CFA2)
+I (..\BleAppSetting.h)(0x5F90FBE8)
+I (..\..\..\porting\mcu_definition.h)(0x5F9006C6)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5F601D9B)
 I (..\inc\config.h)(0x5F4629F5)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5EC775FC)
@@ -747,7 +747,7 @@ I (..\..\..\..\..\..\3_Device\MM32F032xx_s\HAL_lib\inc\HAL_redefine_V1.H)(0x5EAA
 I (..\..\..\..\..\..\3_Device\MM32F032xx_s\HAL_lib\inc\HAL_device.h)(0x5EAA8B02)
 I (..\..\..\include\host.h)(0x5F8E7F7A)
 I (..\..\..\include\ble_basicType.h)(0x5F688738)
-I (..\..\..\include\ble_gapDef.h)(0x5F6470D6)
+I (..\..\..\include\ble_gapDef.h)(0x5F962756)
 I (..\..\..\include\ble_uuid.h)(0x5EA175F0)
 I (..\..\..\include\ble_att_gatt.h)(0x5F5F4852)
 I (..\..\..\include\ble_serviceDef.h)(0x5F28D2A6)

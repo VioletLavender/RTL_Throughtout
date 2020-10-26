@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\Rafael_BLE_MM32F032xx_s.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\Rafael_BLE_MM32F032xx_s.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Wed Oct 21 17:12:00 2020
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Mon Oct 26 09:44:37 2020
 <BR><P>
 <H3>Maximum Stack Usage =        260 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -35,7 +35,7 @@ Function Pointers
  <LI><a href="#[f]">DMA1_Channel2_3_IRQHandler</a> from spi.o(i.DMA1_Channel2_3_IRQHandler) referenced from startup_mm32f032xx_s_keil.o(RESET)
  <LI><a href="#[10]">DMA1_Channel4_5_IRQHandler</a> from spi.o(i.DMA1_Channel4_5_IRQHandler) referenced from startup_mm32f032xx_s_keil.o(RESET)
  <LI><a href="#[75]">ECHC_LE_Ctrl_Pkt</a> from ll.o(i.ECHC_LE_Ctrl_Pkt) referenced from ll.o(.constdata)
- <LI><a href="#[b]">EXTI0_1_IRQHandler</a> from startup_mm32f032xx_s_keil.o(.text) referenced from startup_mm32f032xx_s_keil.o(RESET)
+ <LI><a href="#[b]">EXTI0_1_IRQHandler</a> from main.o(i.EXTI0_1_IRQHandler) referenced from startup_mm32f032xx_s_keil.o(RESET)
  <LI><a href="#[c]">EXTI2_3_IRQHandler</a> from startup_mm32f032xx_s_keil.o(.text) referenced from startup_mm32f032xx_s_keil.o(RESET)
  <LI><a href="#[d]">EXTI4_15_IRQHandler</a> from porting_misc.o(i.EXTI4_15_IRQHandler) referenced from startup_mm32f032xx_s_keil.o(RESET)
  <LI><a href="#[9]">FLASH_IRQHandler</a> from startup_mm32f032xx_s_keil.o(.text) referenced from startup_mm32f032xx_s_keil.o(RESET)
@@ -224,7 +224,7 @@ Global Symbols
 <P><STRONG><a name="[22]"></a>__main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry.o(.ARM.Collect$$$$00000000))
 <BR>[Address Reference Count : 1]<UL><LI> startup_mm32f032xx_s_keil.o(.text)
 </UL>
-<P><STRONG><a name="[1ce]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
+<P><STRONG><a name="[1d2]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
 
 <P><STRONG><a name="[c2]"></a>_main_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
 <BR><BR>[Calls]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
@@ -234,21 +234,21 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
 </UL>
 
-<P><STRONG><a name="[1cf]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
+<P><STRONG><a name="[1d3]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
 
-<P><STRONG><a name="[1d0]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
+<P><STRONG><a name="[1d4]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
 
-<P><STRONG><a name="[1d1]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
+<P><STRONG><a name="[1d5]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
 
-<P><STRONG><a name="[1d2]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
+<P><STRONG><a name="[1d6]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
 
-<P><STRONG><a name="[1d3]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
+<P><STRONG><a name="[1d7]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
 
 <P><STRONG><a name="[c4]"></a>SysCtlDelay</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, porting_lltimer.o(.emb_text))
 <BR><BR>[Calls]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlDelay
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlDelay
-<LI><a href="#[198]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
+<BR>[Called By]<UL><LI><a href="#[198]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
+<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlDelay
 </UL>
 
 <P><STRONG><a name="[0]"></a>Reset_Handler</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, startup_mm32f032xx_s_keil.o(.text))
@@ -293,9 +293,6 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_mm32f032xx_s_keil.o(RESET)
 </UL>
 <P><STRONG><a name="[e]"></a>DMA1_Channel1_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mm32f032xx_s_keil.o(.text))
-<BR>[Address Reference Count : 1]<UL><LI> startup_mm32f032xx_s_keil.o(RESET)
-</UL>
-<P><STRONG><a name="[b]"></a>EXTI0_1_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mm32f032xx_s_keil.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_mm32f032xx_s_keil.o(RESET)
 </UL>
 <P><STRONG><a name="[c]"></a>EXTI2_3_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mm32f032xx_s_keil.o(.text))
@@ -352,7 +349,7 @@ Global Symbols
 <P><STRONG><a name="[6]"></a>WWDG_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_mm32f032xx_s_keil.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_mm32f032xx_s_keil.o(RESET)
 </UL>
-<P><STRONG><a name="[1d4]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
+<P><STRONG><a name="[1d8]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
 
 <P><STRONG><a name="[c6]"></a>__aeabi_uidivmod</STRONG> (Thumb, 44 bytes, Stack size 12 bytes, uidiv.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = __aeabi_uidivmod
@@ -361,18 +358,18 @@ Global Symbols
 <LI><a href="#[18a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_GetSysClockFreq
 <LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_DeInit
 <LI><a href="#[1ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Init
-<LI><a href="#[1c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rafael_pll_bank_get
+<LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rafael_pll_bank_get
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
 </UL>
 
-<P><STRONG><a name="[1d5]"></a>__aeabi_idiv</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, idiv.o(.text), UNUSED)
+<P><STRONG><a name="[1d9]"></a>__aeabi_idiv</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, idiv.o(.text), UNUSED)
 
 <P><STRONG><a name="[c5]"></a>__aeabi_idivmod</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, idiv.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = __aeabi_idivmod &rArr; __aeabi_uidivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rafael_pll_bank_get
+<BR>[Called By]<UL><LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rafael_pll_bank_get
 </UL>
 
 <P><STRONG><a name="[c8]"></a>__aeabi_memset</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, memseta.o(.text))
@@ -380,9 +377,9 @@ Global Symbols
 <LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 </UL>
 
-<P><STRONG><a name="[1d6]"></a>__aeabi_memset4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<P><STRONG><a name="[1da]"></a>__aeabi_memset4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 
-<P><STRONG><a name="[1d7]"></a>__aeabi_memset8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<P><STRONG><a name="[1db]"></a>__aeabi_memset8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 
 <P><STRONG><a name="[c7]"></a>__aeabi_memclr</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, memseta.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset
@@ -390,9 +387,9 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[1c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_IRQHandler
 </UL>
 
-<P><STRONG><a name="[1d8]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<P><STRONG><a name="[1dc]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 
-<P><STRONG><a name="[1d9]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<P><STRONG><a name="[1dd]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 
 <P><STRONG><a name="[c9]"></a>_memset$wrapper</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, memseta.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset
@@ -411,23 +408,23 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_main_scatterload
 </UL>
 
-<P><STRONG><a name="[1da]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
+<P><STRONG><a name="[1de]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
 
 <P><STRONG><a name="[cc]"></a>__aeabi_llsl</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, llshl.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
 </UL>
 
-<P><STRONG><a name="[1db]"></a>_ll_shift_l</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, llshl.o(.text), UNUSED)
+<P><STRONG><a name="[1df]"></a>_ll_shift_l</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, llshl.o(.text), UNUSED)
 
 <P><STRONG><a name="[cb]"></a>__aeabi_llsr</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, llushr.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
 </UL>
 
-<P><STRONG><a name="[1dc]"></a>_ll_ushift_r</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, llushr.o(.text), UNUSED)
+<P><STRONG><a name="[1e0]"></a>_ll_ushift_r</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, llushr.o(.text), UNUSED)
 
-<P><STRONG><a name="[1dd]"></a>__decompress</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
+<P><STRONG><a name="[1e1]"></a>__decompress</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
 
-<P><STRONG><a name="[1de]"></a>__decompress1</STRONG> (Thumb, 86 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
+<P><STRONG><a name="[1e2]"></a>__decompress1</STRONG> (Thumb, 86 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
 
 <P><STRONG><a name="[ce]"></a>ATT_HDL_Notify</STRONG> (Thumb, 118 bytes, Stack size 40 bytes, host.o(i.ATT_HDL_Notify))
 <BR><BR>[Stack]<UL><LI>Max Depth = 92<LI>Call Chain = ATT_HDL_Notify &rArr; setBLE_ConnTxData &rArr; LL_Data2ConnTxFIFO &rArr; GetMsgBlk_L2_wSize
@@ -615,11 +612,11 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = DMA_Config &rArr; DMA_DeInit &rArr; __aeabi_uidivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_DMACmd
-<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHBPeriphClockCmd
 <LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_StructInit
 <LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_Init
 <LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_DeInit
 <LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_Cmd
+<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHBPeriphClockCmd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UARTx_Configure
 </UL>
@@ -679,22 +676,32 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> ll.o(.constdata)
 </UL>
-<P><STRONG><a name="[d]"></a>EXTI4_15_IRQHandler</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, porting_misc.o(i.EXTI4_15_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 260<LI>Call Chain = EXTI4_15_IRQHandler &rArr; LL_GPIO_Isr &rArr; LLWTR_Isr &rArr; LL_Buffer_To_FIFO_Isr &rArr; RF_TxFIFO_LeData_set &rArr; SPI_PDMA_SetTx &rArr; SPIx_DMA_TxData &rArr; SPIx_DMA_Configure &rArr; DMA_DeInit &rArr; __aeabi_uidivmod
+<P><STRONG><a name="[b]"></a>EXTI0_1_IRQHandler</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, main.o(i.EXTI0_1_IRQHandler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = EXTI0_1_IRQHandler
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_GPIO_Isr
-<LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
-<LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_GetITStatus
+<BR>[Calls]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_GetITStatus
 <LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_ClearITPendingBit
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mm32f032xx_s_keil.o(RESET)
 </UL>
+<P><STRONG><a name="[d]"></a>EXTI4_15_IRQHandler</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, porting_misc.o(i.EXTI4_15_IRQHandler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 260<LI>Call Chain = EXTI4_15_IRQHandler &rArr; LL_GPIO_Isr &rArr; LLWTR_Isr &rArr; LL_Buffer_To_FIFO_Isr &rArr; RF_TxFIFO_LeData_set &rArr; SPI_PDMA_SetTx &rArr; SPIx_DMA_TxData &rArr; SPIx_DMA_Configure &rArr; DMA_DeInit &rArr; __aeabi_uidivmod
+</UL>
+<BR>[Calls]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_GetITStatus
+<LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_ClearITPendingBit
+<LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_GPIO_Isr
+<LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_mm32f032xx_s_keil.o(RESET)
+</UL>
 <P><STRONG><a name="[10d]"></a>EXTI_ClearITPendingBit</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, hal_exti.o(i.EXTI_ClearITPendingBit))
-<BR><BR>[Called By]<UL><LI><a href="#[d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI4_15_IRQHandler
+<BR><BR>[Called By]<UL><LI><a href="#[b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI0_1_IRQHandler
+<LI><a href="#[d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI4_15_IRQHandler
 </UL>
 
 <P><STRONG><a name="[10c]"></a>EXTI_GetITStatus</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, hal_exti.o(i.EXTI_GetITStatus))
-<BR><BR>[Called By]<UL><LI><a href="#[d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI4_15_IRQHandler
+<BR><BR>[Called By]<UL><LI><a href="#[b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI0_1_IRQHandler
+<LI><a href="#[d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI4_15_IRQHandler
 </UL>
 
 <P><STRONG><a name="[110]"></a>EXTI_Init</STRONG> (Thumb, 82 bytes, Stack size 4 bytes, hal_exti.o(i.EXTI_Init))
@@ -1320,7 +1327,7 @@ Global Symbols
 <LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HCLL_LE_Read_Local_Supported_Feat
 </UL>
 
-<P><STRONG><a name="[1cd]"></a>Knl_CodeCpyInv_Isr</STRONG> (Thumb, 30 bytes, Stack size 4 bytes, kernel.o(i.Knl_CodeCpyInv_Isr))
+<P><STRONG><a name="[1d1]"></a>Knl_CodeCpyInv_Isr</STRONG> (Thumb, 30 bytes, Stack size 4 bytes, kernel.o(i.Knl_CodeCpyInv_Isr))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = Knl_CodeCpyInv_Isr
 </UL>
 <BR>[Called By]<UL><LI><a href="#[19b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smpC1
@@ -1709,6 +1716,7 @@ Global Symbols
 <LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setBLE_AdvParam
 <LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setBLE_AdvEnable
 <LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ATT_HDL_Notify
+<LI><a href="#[1c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setBLE_TxPower
 <LI><a href="#[1c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setBLE_BleDeviceAddr
 <LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ble_Kernel_Root
 <LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_Data2ConnTxFIFO_smp
@@ -2668,13 +2676,13 @@ Global Symbols
 <P><STRONG><a name="[196]"></a>RF_SpiIoMapping</STRONG> (Thumb, 150 bytes, Stack size 24 bytes, porting_misc.o(i.RF_SpiIoMapping))
 <BR><BR>[Stack]<UL><LI>Max Depth = 132<LI>Call Chain = RF_SpiIoMapping &rArr; BSP_SPI_BLE_Init &rArr; SPIx_DMA_Configure &rArr; DMA_DeInit &rArr; __aeabi_uidivmod
 </UL>
-<BR>[Calls]<UL><LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_DelayMs
+<BR>[Calls]<UL><LI><a href="#[198]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
+<LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_DelayMs
 <LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_1BYT_SetTx
 <LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_SPI_BLE_Init
 <LI><a href="#[199]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spiGpioWriteReg
 <LI><a href="#[197]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_GPIO_Init
 <LI><a href="#[16d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MCU_GpioPinInit
-<LI><a href="#[198]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
 </UL>
 <BR>[Called By]<UL><LI><a href="#[195]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RF_Open
 </UL>
@@ -2778,9 +2786,9 @@ Global Symbols
 <P><STRONG><a name="[192]"></a>RF_Voltage_Det</STRONG> (Thumb, 92 bytes, Stack size 16 bytes, rf_phy.o(i.RF_Voltage_Det))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = RF_Voltage_Det &rArr; SPI_1BYT_SetRx &rArr; SPIx_ReadWriteByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_1BYT_SetRx
+<BR>[Calls]<UL><LI><a href="#[198]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
+<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_1BYT_SetRx
 <LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_1BYT_SetTx
-<LI><a href="#[198]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
 </UL>
 <BR>[Called By]<UL><LI><a href="#[18d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RF_Init
 <LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RF_PowerSaving_En_Isr
@@ -3042,11 +3050,11 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[1a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_StructInit
 <LI><a href="#[1a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_Init
 <LI><a href="#[1a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_Cmd
+<LI><a href="#[1a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinAFConfig
 <LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
 <LI><a href="#[1a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphClockCmd
 <LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHBPeriphClockCmd
 <LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_StructInit
-<LI><a href="#[1a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinAFConfig
 <LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_SPI_BLE_Init
@@ -3055,12 +3063,12 @@ Global Symbols
 <P><STRONG><a name="[d6]"></a>SPIx_DMA_Configure</STRONG> (Thumb, 274 bytes, Stack size 56 bytes, spi.o(i.SPIx_DMA_Configure))
 <BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = SPIx_DMA_Configure &rArr; DMA_DeInit &rArr; __aeabi_uidivmod
 </UL>
-<BR>[Calls]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHBPeriphClockCmd
-<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_StructInit
+<BR>[Calls]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_StructInit
 <LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_Init
 <LI><a href="#[1a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_ITConfig
 <LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_DeInit
 <LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_Cmd
+<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHBPeriphClockCmd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIx_DMA_TxData
 <LI><a href="#[1a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIx_DMA_RxData
@@ -3196,6 +3204,7 @@ Global Symbols
 <P><STRONG><a name="[172]"></a>SysTick_DelayMs</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, systick.o(i.SysTick_DelayMs))
 <BR><BR>[Called By]<UL><LI><a href="#[196]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RF_SpiIoMapping
 <LI><a href="#[170]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MCU_GpioReset
+<LI><a href="#[20]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[195]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RF_Open
 </UL>
 
@@ -3308,11 +3317,11 @@ Global Symbols
 <LI><a href="#[1bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Cmd
 <LI><a href="#[1b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_nvic_config
 <LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_Config
+<LI><a href="#[1a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinAFConfig
 <LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
 <LI><a href="#[1a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphClockCmd
 <LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHBPeriphClockCmd
 <LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_StructInit
-<LI><a href="#[1a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinAFConfig
 <LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[20]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -3331,7 +3340,7 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[1c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
-<P><STRONG><a name="[1df]"></a>__1printf$8</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf8.o(i.__0printf$8), UNUSED)
+<P><STRONG><a name="[1e3]"></a>__1printf$8</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf8.o(i.__0printf$8), UNUSED)
 
 <P><STRONG><a name="[dc]"></a>__2printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf8.o(i.__0printf$8))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __2printf
@@ -3350,11 +3359,11 @@ Global Symbols
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HCLL_LE_Ctrl_Pkt
 </UL>
 
-<P><STRONG><a name="[1e0]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
+<P><STRONG><a name="[1e4]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
 
-<P><STRONG><a name="[1e1]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
+<P><STRONG><a name="[1e5]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
 
-<P><STRONG><a name="[1e2]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
+<P><STRONG><a name="[1e6]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
 <P><STRONG><a name="[e7]"></a>checkBLE_CmdTimer</STRONG> (Thumb, 126 bytes, Stack size 64 bytes, rffunction.o(i.checkBLE_CmdTimer))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = checkBLE_CmdTimer
@@ -3390,18 +3399,21 @@ Global Symbols
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Prcss_OPCODE_ATT_Prepare_Write_Request
 </UL>
 
-<P><STRONG><a name="[1c9]"></a>chkBLE_LL_State_Adv</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, ll.o(i.chkBLE_LL_State_Adv))
+<P><STRONG><a name="[1ca]"></a>chkBLE_LL_State_Adv</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, ll.o(i.chkBLE_LL_State_Adv))
 <BR><BR>[Called By]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setBLE_AdvParam
 <LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setBLE_AdvEnable
+<LI><a href="#[1c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setBLE_TxPower
 <LI><a href="#[1c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setBLE_BleDeviceAddr
 </UL>
 
-<P><STRONG><a name="[1cb]"></a>chkBLE_LL_State_Init</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, ll.o(i.chkBLE_LL_State_Init))
-<BR><BR>[Called By]<UL><LI><a href="#[1c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setBLE_BleDeviceAddr
+<P><STRONG><a name="[1cc]"></a>chkBLE_LL_State_Init</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, ll.o(i.chkBLE_LL_State_Init))
+<BR><BR>[Called By]<UL><LI><a href="#[1c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setBLE_TxPower
+<LI><a href="#[1c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setBLE_BleDeviceAddr
 </UL>
 
-<P><STRONG><a name="[1ca]"></a>chkBLE_LL_State_Scan</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, ll.o(i.chkBLE_LL_State_Scan))
-<BR><BR>[Called By]<UL><LI><a href="#[1c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setBLE_BleDeviceAddr
+<P><STRONG><a name="[1cb]"></a>chkBLE_LL_State_Scan</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, ll.o(i.chkBLE_LL_State_Scan))
+<BR><BR>[Called By]<UL><LI><a href="#[1c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setBLE_TxPower
+<LI><a href="#[1c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setBLE_BleDeviceAddr
 </UL>
 
 <P><STRONG><a name="[184]"></a>chkIfBLE_ATT_Chr_Acss_ByUser</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, rffunction.o(i.chkIfBLE_ATT_Chr_Acss_ByUser))
@@ -3537,7 +3549,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ble_SW_Init
 </UL>
 
-<P><STRONG><a name="[1cc]"></a>initLLCallBack</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, hci.o(i.initLLCallBack))
+<P><STRONG><a name="[1cd]"></a>initLLCallBack</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, hci.o(i.initLLCallBack))
 <BR><BR>[Called By]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setBLE_RegisterBleEvent
 </UL>
 
@@ -3545,12 +3557,14 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Prcss_OPCODE_ATT_Execute_Write_Request
 </UL>
 
-<P><STRONG><a name="[20]"></a>main</STRONG> (Thumb, 124 bytes, Stack size 16 bytes, main.o(i.main))
+<P><STRONG><a name="[20]"></a>main</STRONG> (Thumb, 148 bytes, Stack size 16 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 244<LI>Call Chain = main &rArr; RF_Open &rArr; RF_Init &rArr; Ble_SW_Init &rArr; RF_Tmr_Periodic_initial &rArr; RF_Tmr_Periodic_set_ISR &rArr; SPI_PDMA_SetTx &rArr; SPIx_DMA_TxData &rArr; SPIx_DMA_Configure &rArr; DMA_DeInit &rArr; __aeabi_uidivmod
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setBLE_BleDeviceAddr
+<BR>[Calls]<UL><LI><a href="#[1c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setBLE_TxPower
+<LI><a href="#[1c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setBLE_BleDeviceAddr
 <LI><a href="#[1ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UARTx_Configure
 <LI><a href="#[1ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Init
+<LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_DelayMs
 <LI><a href="#[1c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChipId_Get
 <LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ble_Kernel_Root
 <LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BleApp_Main
@@ -3560,7 +3574,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL>
-<P><STRONG><a name="[1c8]"></a>rafael_pll_bank_get</STRONG> (Thumb, 94 bytes, Stack size 24 bytes, rf_phy.o(i.rafael_pll_bank_get))
+<P><STRONG><a name="[1c9]"></a>rafael_pll_bank_get</STRONG> (Thumb, 94 bytes, Stack size 24 bytes, rf_phy.o(i.rafael_pll_bank_get))
 <BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = rafael_pll_bank_get &rArr; __aeabi_idivmod &rArr; __aeabi_uidivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
@@ -3572,11 +3586,11 @@ Global Symbols
 <P><STRONG><a name="[191]"></a>rafael_pll_calibration</STRONG> (Thumb, 292 bytes, Stack size 24 bytes, rf_phy.o(i.rafael_pll_calibration))
 <BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = rafael_pll_calibration &rArr; rafael_pll_bank_get &rArr; __aeabi_idivmod &rArr; __aeabi_uidivmod
 </UL>
-<BR>[Calls]<UL><LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_1BYT_SetRx
+<BR>[Calls]<UL><LI><a href="#[198]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
+<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_1BYT_SetRx
 <LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_1BYT_SetTx
-<LI><a href="#[198]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
 <LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rafael_reset_phy_fsm
-<LI><a href="#[1c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rafael_pll_bank_get
+<LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rafael_pll_bank_get
 <LI><a href="#[19a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RF_SymbolRate_set
 <LI><a href="#[193]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RF_IntReset
 <LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setChannel_BLE
@@ -3617,7 +3631,7 @@ Global Symbols
 <P><STRONG><a name="[fa]"></a>setBLE_AdvEnable</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, ble_cmd.o(i.setBLE_AdvEnable))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = setBLE_AdvEnable &rArr; GetMsgBlk_L2_wSize
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chkBLE_LL_State_Adv
+<BR>[Calls]<UL><LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chkBLE_LL_State_Adv
 <LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SndMsgBlk
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_CheckConnExist
 <LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetMsgBlk_L2_wSize
@@ -3628,7 +3642,7 @@ Global Symbols
 <P><STRONG><a name="[f7]"></a>setBLE_AdvParam</STRONG> (Thumb, 202 bytes, Stack size 24 bytes, ble_cmd.o(i.setBLE_AdvParam))
 <BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = setBLE_AdvParam &rArr; GetMsgBlk_L2_wSize
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chkBLE_LL_State_Adv
+<BR>[Calls]<UL><LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chkBLE_LL_State_Adv
 <LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SndMsgBlk
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_CheckConnExist
 <LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Knl_CodeCpy
@@ -3640,9 +3654,9 @@ Global Symbols
 <P><STRONG><a name="[1c6]"></a>setBLE_BleDeviceAddr</STRONG> (Thumb, 98 bytes, Stack size 8 bytes, ble_cmd.o(i.setBLE_BleDeviceAddr))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = setBLE_BleDeviceAddr
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chkBLE_LL_State_Scan
-<LI><a href="#[1cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chkBLE_LL_State_Init
-<LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chkBLE_LL_State_Adv
+<BR>[Calls]<UL><LI><a href="#[1cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chkBLE_LL_State_Scan
+<LI><a href="#[1cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chkBLE_LL_State_Init
+<LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chkBLE_LL_State_Adv
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_CheckConnExist
 <LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Knl_MemCpy
 </UL>
@@ -3717,6 +3731,18 @@ Global Symbols
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SMEC_LE_CODE_SMP_Pairing_Confirm
 </UL>
 
+<P><STRONG><a name="[1ce]"></a>setBLE_LL_TxPowerLevel_Adv</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, ll.o(i.setBLE_LL_TxPowerLevel_Adv))
+<BR><BR>[Called By]<UL><LI><a href="#[1c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setBLE_TxPower
+</UL>
+
+<P><STRONG><a name="[1d0]"></a>setBLE_LL_TxPowerLevel_Init</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, ll.o(i.setBLE_LL_TxPowerLevel_Init))
+<BR><BR>[Called By]<UL><LI><a href="#[1c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setBLE_TxPower
+</UL>
+
+<P><STRONG><a name="[1cf]"></a>setBLE_LL_TxPowerLevel_Scan</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, ll.o(i.setBLE_LL_TxPowerLevel_Scan))
+<BR><BR>[Called By]<UL><LI><a href="#[1c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setBLE_TxPower
+</UL>
+
 <P><STRONG><a name="[dd]"></a>setBLE_Pairing_PassKey</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, ble_cmd.o(i.setBLE_Pairing_PassKey))
 <BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = setBLE_Pairing_PassKey &rArr; smpPasskey_set &rArr; PassEC_BLE_CODE_SMP &rArr; GetMsgBlk_L2_wSize
 </UL>
@@ -3729,7 +3755,7 @@ Global Symbols
 <P><STRONG><a name="[d8]"></a>setBLE_RegisterBleEvent</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, ble_event.o(i.setBLE_RegisterBleEvent))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = setBLE_RegisterBleEvent
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initLLCallBack
+<BR>[Calls]<UL><LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initLLCallBack
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BleApp_Init
 </UL>
@@ -3742,6 +3768,20 @@ Global Symbols
 <LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetMsgBlk_L2_wSize
 </UL>
 <BR>[Called By]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ble_Slave_StartADV
+</UL>
+
+<P><STRONG><a name="[1c8]"></a>setBLE_TxPower</STRONG> (Thumb, 104 bytes, Stack size 16 bytes, ble_cmd.o(i.setBLE_TxPower))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = setBLE_TxPower
+</UL>
+<BR>[Calls]<UL><LI><a href="#[1cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setBLE_LL_TxPowerLevel_Scan
+<LI><a href="#[1d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setBLE_LL_TxPowerLevel_Init
+<LI><a href="#[1ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setBLE_LL_TxPowerLevel_Adv
+<LI><a href="#[1cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chkBLE_LL_State_Scan
+<LI><a href="#[1cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chkBLE_LL_State_Init
+<LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chkBLE_LL_State_Adv
+<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_CheckConnExist
+</UL>
+<BR>[Called By]<UL><LI><a href="#[20]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[137]"></a>setChannel_BLE</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, rf_phy.o(i.setChannel_BLE))
@@ -3836,7 +3876,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Knl_MemCpyInv_Isr
 <LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Knl_CodeCpy_Isr
-<LI><a href="#[1cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Knl_CodeCpyInv_Isr
+<LI><a href="#[1d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Knl_CodeCpyInv_Isr
 <LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smpAES_out
 <LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smpAES_in_key
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;smpAES_in_PlainText
