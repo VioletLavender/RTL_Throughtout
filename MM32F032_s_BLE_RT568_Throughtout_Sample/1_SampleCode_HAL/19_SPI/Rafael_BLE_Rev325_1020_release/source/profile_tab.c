@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include "BleAppSetting.h"
 #include "host.h"
-
+#include "user.h"
 
 const Uint8 ATT_HDL_INVALID[] =
 {
