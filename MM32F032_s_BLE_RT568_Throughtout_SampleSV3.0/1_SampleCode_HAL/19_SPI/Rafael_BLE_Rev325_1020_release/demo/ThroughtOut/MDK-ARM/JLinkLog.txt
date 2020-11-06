@@ -1,0 +1,80 @@
+T2DB0 000:158.688   SEGGER J-Link V6.80a Log File
+T2DB0 000:158.840   DLL Compiled: May 29 2020 16:27:00
+T2DB0 000:158.853   Logging started @ 2020-10-30 05:54
+T2DB0 000:158.868 JLINK_SetWarnOutHandler(...)
+T2DB0 000:158.882 - 0.020ms
+T2DB0 000:158.900 JLINK_OpenEx(...)
+T2DB0 000:161.363   Firmware: J-Link V9 compiled Dec 13 2019 11:14:50
+T2DB0 000:161.549   Decompressing FW timestamp took 137 us
+T2DB0 000:171.141   Hardware: V9.30
+T2DB0 000:171.173   S/N: 59300616
+T2DB0 000:171.193   OEM: SEGGER
+T2DB0 000:171.211   Feature(s): RDI, FlashBP, FlashDL, JFlash, GDB
+T2DB0 000:173.497   TELNET listener socket opened on port 19021
+T2DB0 000:173.711   WEBSRV Starting webserver
+T2DB0 000:173.815   WEBSRV Webserver running on local port 19080
+T2DB0 000:173.836 - 14.942ms returns "O.K."
+T2DB0 000:173.863 JLINK_GetEmuCaps()
+T2DB0 000:173.876 - 0.018ms returns 0xB9FF7BBF
+T2DB0 000:173.893 JLINK_TIF_GetAvailable(...)
+T2DB0 000:174.490 - 0.607ms
+T2DB0 000:174.512 JLINK_SetErrorOutHandler(...)
+T2DB0 000:174.524 - 0.019ms
+T2DB0 000:174.553 JLINK_ExecCommand("ProjectFile = "C:\Users\24716\Desktop\MM32F032_s_BLE_RT568_Throughtout_SampleSV2.0\1_SampleCode_HAL\19_SPI\Rafael_BLE_Rev325_1020_release\demo\ThroughtOut\MDK-ARM\JLinkSettings.ini"", ...). 
+T2DB0 000:182.930   Ref file found at: C:\Keil_v5\ARM\Segger\JLinkDevices.ref
+T2DB0 000:183.124   XML referenced by ref file: C:\Program Files (x86)\SEGGER\JLink\JLinkDevices.xml
+T2DB0 000:184.013   C:\Program Files (x86)\SEGGER\JLink\JLinkDevices.xml evaluated successfully.
+T2DB0 000:282.682   Device "ARM9" selected.
+T2DB0 000:283.069 - 108.532ms returns 0x00
+T2DB0 000:283.096 JLINK_ExecCommand("Device = MM32F032R8T6", ...). 
+T2DB0 000:283.223   Device "ARM9" selected.
+T2DB0 000:283.561 - 0.459ms returns 0x00
+T2DB0 000:283.581 JLINK_ExecCommand("DisableConnectionTimeout", ...). 
+T2DB0 000:283.599 - 0.008ms returns 0x01
+T2DB0 000:283.613 JLINK_GetHardwareVersion()
+T2DB0 000:283.626 - 0.018ms returns 0x16B48
+T2DB0 000:283.646 JLINK_GetDLLVersion()  returns 68001
+T2DB0 000:283.666 JLINK_GetFirmwareString(...)
+T2DB0 000:283.678 - 0.018ms
+T2DB0 000:283.696 JLINK_GetDLLVersion()  returns 68001
+T2DB0 000:283.709 JLINK_GetCompileDateTime()
+T2DB0 000:283.721 - 0.018ms
+T2DB0 000:283.738 JLINK_GetFirmwareString(...)
+T2DB0 000:283.750 - 0.018ms
+T2DB0 000:283.766 JLINK_GetHardwareVersion()
+T2DB0 000:283.778 - 0.018ms returns 0x16B48
+T2DB0 000:283.799 JLINK_TIF_Select(JLINKARM_TIF_SWD)
+T2DB0 000:287.061 - 3.285ms returns 0x00
+T2DB0 000:287.121 JLINK_SetSpeed(5000)
+T2DB0 000:288.111 - 1.015ms
+T2DB0 000:288.414 JLINK_SetResetType(JLINKARM_RESET_TYPE_NORMAL)
+T2DB0 000:288.435 - 0.027ms returns JLINKARM_RESET_TYPE_NORMAL
+T2DB0 000:288.450 JLINK_Reset()
+T2DB0 000:289.541   
+  ***** Error: 
+T2DB0 000:289.577   ARM9 is not supported via SWD
+T2DB0 000:355.331   
+  ***** Error: 
+T2DB0 000:355.368   ARM9 is not supported via SWD
+T2DB0 000:355.401 JLINK_GetId()
+T2DB0 000:356.600   
+  ***** Error: 
+T2DB0 000:356.637   ARM9 is not supported via SWD
+T2DB0 000:421.221   
+  ***** Error: 
+T2DB0 000:421.258   ARM9 is not supported via SWD
+T2DB0 000:421.276 - 65.881ms   returns 0x00000000
+T2DB0 000:421.304 JLINK_GetId()
+T2DB0 000:422.534   
+  ***** Error: 
+T2DB0 000:422.569   ARM9 is not supported via SWD
+T2DB0 000:486.206   
+  ***** Error: 
+T2DB0 000:498.096   ARM9 is not supported via SWD
+T2DB0 000:498.117 - 76.842ms   returns 0x00000000
+T2DB0 000:501.699 JLINK_GetFirmwareString(...)
+T2DB0 000:501.718 - 0.025ms
+T2DB0 002:424.538 JLINK_Close()
+T2DB0 002:433.918 - 9.398ms
+T2DB0 002:433.943   
+T2DB0 002:433.956   Closed
