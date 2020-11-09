@@ -11,7 +11,7 @@ I (..\..\..\..\..\..\3_Device\CMSIS\KEIL_CORE\core_cmInstr.h)(0x5E782F0C)
 I (..\..\..\..\..\..\3_Device\CMSIS\KEIL_CORE\core_cmFunc.h)(0x5E782F0C)
 I (..\..\..\..\..\..\3_Device\MM32F032xx_s\Include\mm32_reg_redefine_v1.h)(0x5EAA8A46)
 F (..\..\..\..\..\..\3_Device\MM32F032xx_s\Source\KEIL_StartAsm\startup_MM32F032xx_s_KEIL.s)(0x5EB64DF1)(--cpu Cortex-M0 -g --apcs=interwork --pd "__MICROLIB SETA 1"-IC:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 531"--list .\listings\startup_mm32f032xx_s_keil.lst --xref -o .\objects\startup_mm32f032xx_s_keil.o --depend .\objects\startup_mm32f032xx_s_keil.d)
-F (..\main.c)(0x5F9FE61D)(-c --cpu Cortex-M0 -D__MICROLIB -g -O1 --apcs=interwork --split_sections -I ..\..\..\..\..\..\3_Device\CMSIS\KEIL_CORE -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\HAL_lib\inc -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\Include -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\Source\KEIL_StartAsm -I ..\Peripheral\inc -I ..\..\..\include\rf_include -I ..\..\..\include\ -I ..\..\..\porting\rf_porting -I ..\..\..\porting\ -I ..\ -I ..\inc-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="531"-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (..\main.c)(0x5FA8A662)(-c --cpu Cortex-M0 -D__MICROLIB -g -O1 --apcs=interwork --split_sections -I ..\..\..\..\..\..\3_Device\CMSIS\KEIL_CORE -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\HAL_lib\inc -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\Include -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\Source\KEIL_StartAsm -I ..\Peripheral\inc -I ..\..\..\include\rf_include -I ..\..\..\include\ -I ..\..\..\porting\rf_porting -I ..\..\..\porting\ -I ..\ -I ..\inc-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="531"-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5EC775FC)
 I (..\inc\main.h)(0x5EE0B431)
 I (..\inc\config.h)(0x5F4629F5)
@@ -706,7 +706,7 @@ I (..\..\..\include\ble_att_gatt.h)(0x5F5F4852)
 I (..\..\..\include\ble_serviceDef.h)(0x5FA13068)
 I (..\..\..\include\blestack_status.h)(0x5F6096D6)
 I (..\..\..\porting\porting_flash.h)(0x5F6096D6)
-F (..\..\..\source\profile_tab.c)(0x5FA39438)(-c --cpu Cortex-M0 -D__MICROLIB -g -O1 --apcs=interwork --split_sections -I ..\..\..\..\..\..\3_Device\CMSIS\KEIL_CORE -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\HAL_lib\inc -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\Include -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\Source\KEIL_StartAsm -I ..\Peripheral\inc -I ..\..\..\include\rf_include -I ..\..\..\include\ -I ..\..\..\porting\rf_porting -I ..\..\..\porting\ -I ..\ -I ..\inc-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="531"-o .\objects\profile_tab.o --omf_browse .\objects\profile_tab.crf --depend .\objects\profile_tab.d)
+F (..\..\..\source\profile_tab.c)(0x5FA8A98D)(-c --cpu Cortex-M0 -D__MICROLIB -g -O1 --apcs=interwork --split_sections -I ..\..\..\..\..\..\3_Device\CMSIS\KEIL_CORE -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\HAL_lib\inc -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\Include -I ..\..\..\..\..\..\3_Device\MM32F032xx_s\Source\KEIL_StartAsm -I ..\Peripheral\inc -I ..\..\..\include\rf_include -I ..\..\..\include\ -I ..\..\..\porting\rf_porting -I ..\..\..\porting\ -I ..\ -I ..\inc-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="531"-o .\objects\profile_tab.o --omf_browse .\objects\profile_tab.crf --depend .\objects\profile_tab.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5EC775FC)
 I (..\BleAppSetting.h)(0x5F90FBE8)
 I (..\..\..\porting\mcu_definition.h)(0x5F9006C6)

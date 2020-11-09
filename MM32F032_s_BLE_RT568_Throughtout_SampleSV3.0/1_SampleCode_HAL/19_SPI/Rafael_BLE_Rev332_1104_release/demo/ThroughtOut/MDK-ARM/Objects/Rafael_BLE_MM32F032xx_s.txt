@@ -3,7 +3,7 @@
 
 ** ELF Header Information
 
-    File Name: C:\Users\24716\Desktop\MM32F032_s_BLE_RT568_Throughtout_SampleSV2.0\1_SampleCode_HAL\19_SPI\Rafael_BLE_Rev332_1104_release\demo\ThroughtOut\MDK-ARM\Objects\Rafael_BLE_MM32F032xx_s.axf
+    File Name: C:\Users\24716\Desktop\MM32F032_s_BLE_RT568_Throughtout_SampleSV3.0\1_SampleCode_HAL\19_SPI\Rafael_BLE_Rev332_1104_release\demo\ThroughtOut\MDK-ARM\Objects\Rafael_BLE_MM32F032xx_s.axf
 
     Machine class: ELFCLASS32 (32-bit)
     Data encoding: ELFDATA2LSB (Little endian)
@@ -33,8 +33,8 @@
     Program header entries: 1
     Section header entries: 16
 
-    Program header offset: 992728 (0x000f25d8)
-    Section header offset: 992760 (0x000f25f8)
+    Program header offset: 992724 (0x000f25d4)
+    Section header offset: 992756 (0x000f25f4)
 
     Section header string table index: 15
 
@@ -18418,9 +18418,9 @@
         0x080093ec:    71c8        .q      STRB     r0,[r1,#7]
         0x080093ee:    2054        T       MOVS     r0,#0x54
         0x080093f0:    7208        .r      STRB     r0,[r1,#8]
-        0x080093f2:    2055        U       MOVS     r0,#0x55
+        0x080093f2:    2050        P       MOVS     r0,#0x50
         0x080093f4:    7248        Hr      STRB     r0,[r1,#9]
-        0x080093f6:    2056        V       MOVS     r0,#0x56
+        0x080093f6:    2043        C       MOVS     r0,#0x43
         0x080093f8:    7288        .r      STRB     r0,[r1,#0xa]
         0x080093fa:    a801        ..      ADD      r0,sp,#4
         0x080093fc:    f000f9d2    ....    BL       setBLE_BleDeviceAddr ; 0x80097a4
@@ -20655,7 +20655,7 @@
 
 
 ** Section #14 '.comment' (SHT_PROGBITS)
-    Size   : 54080 bytes
+    Size   : 54076 bytes
 
 
 ** Section #15 '.shstrtab' (SHT_STRTAB)

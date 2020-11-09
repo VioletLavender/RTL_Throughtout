@@ -260,8 +260,8 @@ while(1);
     bleAddrParam.addr[1] = 0x22;
     bleAddrParam.addr[2] = 0x33;
     bleAddrParam.addr[3] = 0x54;
-    bleAddrParam.addr[4] = 0x55;
-    bleAddrParam.addr[5] = 0x56;
+    bleAddrParam.addr[4] = 0x50;
+    bleAddrParam.addr[5] = 0x43;
     setBLE_BleDeviceAddr(&bleAddrParam);
 
 
